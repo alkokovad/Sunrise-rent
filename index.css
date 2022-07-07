@@ -1,0 +1,23 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+nav {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 100%;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 32px;
+    max-width: 100%;
+}
+
+.sign_in_up {
+    position: absolute;
+}
