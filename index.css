@@ -74,7 +74,7 @@ button{
     max-height: 100%;
     border: none;
     color: white;
-    border-radius: 10vh;
+    border-radius: 1em;
 }
 
 h1 {
@@ -88,10 +88,25 @@ h2 {
 }
 
 h4 {
-    position: relative;
     font-size: 16px;
     max-width: 100%;
     margin-bottom: 0.2em;
+}
+
+h5 {
+    font-size: 12px;
+    text-align: right;
+}
+
+h6 {
+    font-size: 10px;
+    text-align: left;
+}
+
+h7 {
+    font-size: 8px;
+    text-align: center;
+    color: grey;
 }
 
 p {
@@ -132,13 +147,65 @@ p {
 }
 
 .today {
-    box-shadow: inset 0 0 0 2px blue;
+    box-shadow: inset 0 0 0 2px black;
 }
 
 .date {
     font-size: 18px;
     margin-bottom: 0;
     width: max-content;
+}
+
+hr {
+    color: black;
+    width: 100%;
+    z-index: -1;
+}
+
+.rent_list {
+    border-style: solid;
+    border-color: black;
+    border-radius: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.rent_wid {
+    width: 32%;
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 3%;
+}
+
+.rent_img {
+    position: relative;
+    width: 50%;
+    background-color: grey;
+    float: left;
+    z-index: -1;
+}
+
+.about_rent {
+    width: 50%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 992px) {
+    .rent_wid {
+        width: 47%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -205,5 +272,9 @@ p {
         align-items: none;
         right: 0;
         left: 0;
+    }
+
+    .rent_wid {
+        width: 98%;
     }
 }
