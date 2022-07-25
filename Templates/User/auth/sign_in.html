@@ -1,0 +1,14 @@
+{% extends 'includes/form.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block form_title %}
+    Вход
+{% endblock %}
+
+{% block buttons %}
+    <button type="submit" class="btn btn-primary">Войти</button>
+    <a class="btn btn-success" href="{% url 'sign_up' %}">Регистрация</a>
+{% endblock %}

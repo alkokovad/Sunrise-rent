@@ -1,0 +1,227 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <title>Sup-Kayak Simagino</title>
+</head>
+<body>
+<header>
+    <nav>
+        <h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-water"
+                 viewBox="0 0 16 16">
+                <path d="M.036 3.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 3.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 6.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0L.314 9.964a.5.5 0 0 1-.278-.65zm0 3a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65z"/>
+            </svg>
+            Sup-Kayak Simagino
+        </h1>
+
+    </nav>
+    {% if not request.user.is_authenticated %}
+        <div class="sign_in_up">
+            <a href="{% url 'sign_up' %}">
+                <button>
+                    <h4>Зарегистрироваться</h4>
+                </button>
+            </a>
+            <a href="{% url 'sign_in' %}">
+                <button>
+                    <h4>Войти</h4>
+                </button>
+            </a>
+        </div>
+    {% endif %}
+</header>
+<main>
+    <article class="about_article">
+        <div class="about_text">
+            <h1>О нас</h1>
+            <p>Привет, мы предоставляем услуги аренды сапов, каяков, а также катамарнов на Большом Симагинском озере,
+                которое находится рядом с Зеленогорском. У нас качественное специализированное оборудование, а также
+                грамотный инструктаж (шанс что встанете на сап с первого раза 95%). В нашему "флоте" обязательно
+                найдется
+                что-то конкретное, для вас, от одноместного каяка для прогулки по реке - до плавучей платформы для
+                веселой
+                компании. На этом сайте вы можете посмотреть график нашей работы, где мы находимся, а также
+                забронировать
+                аренду чего-либо на опредленные дату и время.</p>
+        </div>
+        <aside>
+            <img src="{% static 'img/about_img.jpg' %}" alt="фото">
+        </aside>
+    </article>
+    <article class="timetable_article">
+        <hr>
+        <h2>График нашей работы</h2>
+        <div class="days">
+            {% for time in times %}
+                {% if time.status %}
+                    <div class="day working">
+                        <h2 class="date">{{ time.date_format }}</h2>
+                    </div>
+                {% else %}
+                    <div class="day not_working">
+                        <h2 class="date">{{ time.date_format }}</h2>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        <hr>
+    </article>
+    <article class="rent">
+        <h2>Аренда</h2>
+        <div class="rent_list">
+            <div class="rent_wid choosen">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Катамаран платформа</h5>
+                    <h7>День: 20000<br>3ч: 6500<br>1ч: 2500<br>30м: 1250</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Катамаран с электромотором</h5>
+                    <h7>День: 20000<br>3ч: 6500<br>1ч: 2500<br>30м: 1250</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Катамаран механический</h5>
+                    <h7>День: 15000<br>3ч: 5000<br>1ч: 1900<br>30м: 950</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Каяк двухместный</h5>
+                    <h7>День: 6800<br>3ч: 2250<br>1ч: 850<br>30м: 400</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Каяк одноместный зелёный</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 650<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Каяк одноместный красный</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 650<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Сап №1</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Сап №2</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Сап №3</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Сап №4</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Сап №5</h5>
+                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+            <div class="rent_wid">
+                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
+                <div class="about_rent">
+                    <h5>Лодка</h5>
+                    <h7>День: 3200<br>3ч: 1100<br>1ч: 400<br>30м: 200</h7>
+                    <h6>...</h6>
+                </div>
+            </div>
+        </div>
+    </article>
+    <section>
+        <hr>
+        <div class="booking_wid">
+            <h4>Катамаран платформа</h4>
+            <div class="datetime_choose">
+                <h6>Выберите дату и время</h6>
+                <div class="days">
+                    <div class="day nothing today">
+                        <h2 class="date">10</h2>
+                    </div>
+                    <div class="day nothing">
+                        <h2 class="date">13</h2>
+                    </div>
+                    <div class="day nothing">
+                        <h2 class="date">14</h2>
+                    </div>
+                </div>
+                <h6>Выберите Время начала аренды</h6>
+                <div class="times">
+                    <button class="time_btn"><h7 class="time">10:00</h7></button>
+                    <button class="time_btn"><h7 class="time">10:30</h7></button>
+                    <button class="time_btn"><h7 class="time">11:00</h7></button>
+                    <button class="time_btn"><h7 class="time">11:30</h7></button>
+                    <button class="time_btn"><h7 class="time">12:00</h7></button>
+                    <button class="time_btn"><h7 class="time">12:30</h7></button>
+                    <button class="time_btn"><h7 class="time">13:00</h7></button>
+                    <button class="time_btn"><h7 class="time">13:30</h7></button>
+                    <button class="time_btn"><h7 class="time">14:00</h7></button>
+                    <button class="time_btn"><h7 class="time">14:30</h7></button>
+                    <button class="time_btn"><h7 class="time">15:00</h7></button>
+                    <button class="time_btn"><h7 class="time">15:30</h7></button>
+                    <button class="time_btn"><h7 class="time">16:00</h7></button>
+                    <button class="time_btn"><h7 class="time">16:30</h7></button>
+                    <button class="time_btn"><h7 class="time">17:00</h7></button>
+                    <button class="time_btn"><h7 class="time">17:30</h7></button>
+                    <button class="time_btn"><h7 class="time">18:00</h7></button>
+                    <button class="time_btn"><h7 class="time">18:30</h7></button>
+                    <button class="time_btn"><h7 class="time">19:00</h7></button>
+                </div>
+                <form>
+                    <input type="text" value="Длительность аренды">
+                </form>
+            </div>
+        </div>
+        <hr>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
