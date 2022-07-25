@@ -1,13 +1,13 @@
 ::-webkit-scrollbar { width: 0;}
 
 body {
+    background: #6495ED;
     max-width: 100%;
     max-height: 100%;
 }
 
 header {
     position: fixed;
-    background-color: white;
     top: 0;
     left: 10%;
     right: 10%;
@@ -31,10 +31,8 @@ main {
     max-width: 100%;
     max-height: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .timetable_article {
@@ -46,10 +44,15 @@ main {
 }
 
 .about_text {
+    position: relative;
+    backdrop-filter: blur(10px);
     max-width: 50%;
     max-height: 100%;
     display: flex;
     flex-direction: column;
+    border-radius: 4em;
+    background: rgba(243, 146, 55, .4);
+    z-index: -1;
 }
 
 img {
@@ -57,6 +60,22 @@ img {
     max-width: 100%;
     float: right;
     z-index: -1;
+    border-radius: 2em;
+    z-index: -2;
+}
+
+.side_img_about_us1 {
+    position: absolute;
+    max-width: 40%;
+    top: 20em;
+    left: 60%;
+}
+
+.side_img_about_us2 {
+    position: absolute;
+    max-width: 40%;
+    top: 30em;
+    left: 50%;
 }
 
 nav {
@@ -80,9 +99,15 @@ button{
 }
 
 h1 {
+    color: #1F0318;
     font-size: 32px;
     max-width: 100%;
     margin-bottom: 0%;
+}
+
+.about_us_title {
+    color: #E5F2C9;
+    margin: 3% 0 0 5%;
 }
 
 h2 {
@@ -112,9 +137,10 @@ h7 {
 }
 
 p {
+    color: #E5F2C9;
     margin-bottom: 0;
     font-size: 18px;
-    margin-right: 5%;
+    margin: 5%;
 }
 
 .days {
@@ -185,7 +211,8 @@ hr {
     margin: 5px;
     padding: 5px;
     border-radius: 1em;
-    box-shadow: 0 0 4px 0.5px grey;
+    background: #E5F2C9;
+    box-shadow: 0 0 8px 2px grey;
     display: flex;
     justify-content: center;
     align-items: center;
