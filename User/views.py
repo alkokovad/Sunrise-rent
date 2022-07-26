@@ -8,13 +8,11 @@ from User.forms import SignUpForm
 class SignUpView(View):
     template_name = 'User/auth/sign_up.html'
 
-
     def get(self, request):
         form = SignUpForm()
         context = {'form': form}
         return render(request, self.template_name, context)
 
-    
     def post(self, request):
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -22,7 +20,6 @@ class SignUpView(View):
         else:
             context = {'form': form}
             return render(request, self.template_name, context)
-
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -33,10 +30,8 @@ class SignUpView(View):
 class SignInView(admin_views.LoginView):
     template_name = 'User/auth/sign_in.html'
 
-
     def post(self, request):
         return redirect(reverse_lazy('mainpage'))
-
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
