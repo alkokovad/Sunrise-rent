@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Timing
+from .models import Timing, Equipment
 
 # Create your views here.
 class MainPageView(View):
@@ -9,5 +9,7 @@ class MainPageView(View):
 
     def get(self, request, *args, **kwargs):
         timing = Timing.objects.all()
-        context = {'times': timing}
+        equipment = Equipment.objects.all()
+        context = {'times': timing,
+                   'equipment': equipment}
         return render(request, self.template_name, context)

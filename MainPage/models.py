@@ -4,17 +4,18 @@ from User.models import User
 
 # Create your models here.
 class Equipment(models.Model):
-    equipment_id = models.AutoField('ID', primary_key=True)
+    equipment_id = models.AutoField('ID', primary_key=True, )
     name = models.TextField('Название', unique=True, blank=True)
     bio = models.TextField('Описание', blank=True)
-    cost_for_half_hour = models.IntegerField('Стоимость 30 минут', blank=True)
-    cost_for_hour = models.IntegerField('Стоимость часа', blank=True)
-    cost_for_3_hours = models.IntegerField('Стоимость 3 часов', blank=True)
-    cost_for_4_hours = models.IntegerField('Стоимость 4 часов', blank=True)
+    photo = models.ImageField('Фото', upload_to='static/img/equipment/', default='Static/img/about_img.jpg')
+    cost_for_half_hour = models.IntegerField('Стоимость 30 минут', blank=True, default=0)
+    cost_for_hour = models.IntegerField('Стоимость часа', blank=True, default=0)
+    cost_for_3_hours = models.IntegerField('Стоимость 3 часов', blank=True, default=0)
+    cost_for_day = models.IntegerField('Стоимость дня', blank=True, default=0)
 
 
     def __str__(self):
-        return f'ID: {self.id} Название: {self.name} Описание: {self.bio} Стоимость 30 минут: {self.cost_for_half_hour} Стоимость часа: {self.cost_for_hour} Стоимость 3 часов: {self.cost_for_3_hours} Стоимость 4 часов: {self.cost_for_4_hours}'
+        return f'ID: {self.equipment_id} Название: {self.name} Описание: {self.bio} Стоимость 30 минут: {self.cost_for_half_hour} Стоимость часа: {self.cost_for_hour} Стоимость 3 часов: {self.cost_for_3_hours} Стоимость дня: {self.cost_for_day}'
 
 
 class Orders(models.Model):

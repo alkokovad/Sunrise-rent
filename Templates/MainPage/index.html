@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,25 +21,19 @@
         </h1>
 
     </nav>
-    {% if not request.user.is_authenticated %}
-        <div class="sign_in_up">
-            <a href="{% url 'sign_up' %}">
-                <button>
-                    <h4>Зарегистрироваться</h4>
-                </button>
-            </a>
-            <a href="{% url 'sign_in' %}">
-                <button>
-                    <h4>Войти</h4>
-                </button>
-            </a>
-        </div>
-    {% endif %}
+    <div class="sign_in_up">
+        <button>
+            <h4>Зарегистрироваться</h4>
+        </button>
+        <button>
+            <h4>Войти</h4>
+        </button>
+    </div>
 </header>
 <main>
     <article class="about_article">
         <div class="about_text">
-            <h1>О нас</h1>
+            <h1 class="about_us_title">О нас</h1>
             <p>Привет, мы предоставляем услуги аренды сапов, каяков, а также катамарнов на Большом Симагинском озере,
                 которое находится рядом с Зеленогорском. У нас качественное специализированное оборудование, а также
                 грамотный инструктаж (шанс что встанете на сап с первого раза 95%). В нашему "флоте" обязательно
@@ -50,9 +44,8 @@
                 забронировать
                 аренду чего-либо на опредленные дату и время.</p>
         </div>
-        <aside>
-            <img src="{% static 'img/about_img.jpg' %}" alt="фото">
-        </aside>
+        <img src="{% static 'img/about_img.jpg' %}" alt="фото" class="side_img_about_us1">
+        <img src="{% static 'img/about_img1.jpg' %}" alt="фото" class="side_img_about_us2">
     </article>
     <article class="timetable_article">
         <hr>
@@ -69,108 +62,22 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            </div>
+        </div>
         <hr>
     </article>
     <article class="rent">
         <h2>Аренда</h2>
         <div class="rent_list">
-            <div class="rent_wid choosen">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Катамаран платформа</h5>
-                    <h7>День: 20000<br>3ч: 6500<br>1ч: 2500<br>30м: 1250</h7>
-                    <h6>...</h6>
+            {% for equip in equipment %}
+                <div class="rent_wid">
+                    <img src="/{{ equip.photo }}" class="rent_img">
+                    <div class="about_rent">
+                        <h5>{{ equip.name }}</h5>
+                        <h7>30м: {{ equip.cost_for_half_hour }}<br>1ч: {{ equip.cost_for_hour }}<br>3ч: {{ equip.cost_for_3_hours }}<br>День: {{ equip.cost_for_day }}</h7>
+                        <h6>{{ equip.bio }}</h6>
+                    </div>
                 </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Катамаран с электромотором</h5>
-                    <h7>День: 20000<br>3ч: 6500<br>1ч: 2500<br>30м: 1250</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Катамаран механический</h5>
-                    <h7>День: 15000<br>3ч: 5000<br>1ч: 1900<br>30м: 950</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Каяк двухместный</h5>
-                    <h7>День: 6800<br>3ч: 2250<br>1ч: 850<br>30м: 400</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Каяк одноместный зелёный</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 650<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Каяк одноместный красный</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 650<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Сап №1</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Сап №2</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Сап №3</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Сап №4</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Сап №5</h5>
-                    <h7>День: 5200<br>3ч: 1700<br>1ч: 500<br>30м: 300</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
-            <div class="rent_wid">
-                <img src="" alt="Я знаю ты это увидел, я жду фоток!" class="rent_img">
-                <div class="about_rent">
-                    <h5>Лодка</h5>
-                    <h7>День: 3200<br>3ч: 1100<br>1ч: 400<br>30м: 200</h7>
-                    <h6>...</h6>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </article>
     <section>
@@ -180,15 +87,13 @@
             <div class="datetime_choose">
                 <h6>Выберите дату и время</h6>
                 <div class="days">
-                    <div class="day nothing today">
-                        <h2 class="date">10</h2>
-                    </div>
-                    <div class="day nothing">
-                        <h2 class="date">13</h2>
-                    </div>
-                    <div class="day nothing">
-                        <h2 class="date">14</h2>
-                    </div>
+                    {% for time in times %}
+                        {% if time.status %}
+                            <div class="day nothing">
+                                <h2 class="date">{{ time.date_format }}</h2>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <h6>Выберите Время начала аренды</h6>
                 <div class="times">
