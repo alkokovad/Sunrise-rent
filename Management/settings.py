@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # my shitcode starts here:
-    'MainPage.apps.MainpageConfig',
+    'MainPage.apps.MainPageConfig',
     'User.apps.UserConfig',
 ]
 
@@ -119,10 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'Static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "Static",
 ]
 
 LOGIN_URL = '/auth/sign_in'
