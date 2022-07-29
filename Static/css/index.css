@@ -226,6 +226,10 @@ hr {
     background: rgba(100, 149, 237, .1);
 }
 
+.standstill {
+    filter: blur(3px);
+}
+
 .choosen {
     box-shadow: inset 0 0 0 1px black;
 }

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Schedule, Equipment
+from django.utils import timezone
 
 
 class MainPageView(View):
@@ -9,6 +10,8 @@ class MainPageView(View):
     def get(self, request, *args, **kwargs):
         timing = Schedule.objects.all()
         equipment = Equipment.objects.all()
+        today = timezone.now().date()
         context = {'times': timing,
+                   'today': today,
                    'equipment': equipment}
         return render(request, self.template_name, context)
