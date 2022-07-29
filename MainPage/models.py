@@ -6,7 +6,7 @@ class Equipment(models.Model):
     name = models.CharField('Название', max_length=256, unique=True)
     photo = models.ImageField('Фото', upload_to='Static/img/equipment/', default='Static/img/about_img.jpg')
     description = models.TextField('Описание', blank=True, null=True)
-    is_working = models.BooleanField('Работает ли', null=True, default=True)
+    is_active = models.BooleanField('В работе', default=True)
     cost_for_half_hour = models.IntegerField('Стоимость 30 минут', blank=True, default=0)
     cost_for_hour = models.IntegerField('Стоимость часа', blank=True, default=0)
     cost_for_3_hours = models.IntegerField('Стоимость 3 часов', blank=True, default=0)
@@ -48,19 +48,16 @@ class Orders(models.Model):
 
 class Schedule(models.Model):
     date = models.DateField('Дата')
-    status = models.BooleanField('Статус работы')
 
     class Meta:
         verbose_name = 'Расписание'
         verbose_name_plural = 'Расписание'
 
     def __str__(self):
-        state = 'Не работаем'
-        if self.status:
-            state = 'Работаем'
+        state = 'Работаем'
         date = str(self.date).split('-')
         date = date[2] + '-' + date[1]
         return f'{date} {state}'
 
-    def date_format(self):
+    def get_day(self):
         return str(self.date).split('-')[2]
