@@ -10,8 +10,8 @@ header {
     position: fixed;
     background: #161925;
     top: 0;
-    left: 10%;
-    right: 10%;
+    left: 8%;
+    right: 8%;
     max-width: 100%;
     max-height: 100%;
     display: flex;
@@ -19,6 +19,8 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
+    box-shadow: 0 10px 10px #161925;
 }
 
 main {
@@ -64,6 +66,11 @@ img {
     z-index: -1;
 }
 
+.about_us_title {
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
 .about_us_img {
     position: relative;
     float: right;
@@ -76,8 +83,10 @@ img {
 nav {
     position: relative;
     top: 1%;
+    left: 2%;
     max-width: 100%;
     max-height: 100%;
+    margin-bottom: 1%;
 }
 
 .sign_in_up {
@@ -98,8 +107,6 @@ h1 {
     max-width: 100%;
     margin-bottom: 0%;
     color: #CBF7ED;
-    padding-left: 5%;
-    padding-top: 2%;
 }
 
 h2 {
@@ -116,17 +123,19 @@ h4 {
 h5 {
     font-size: 12px;
     text-align: right;
+    color: #CBF7ED;
 }
 
 h6 {
     font-size: 10px;
     text-align: left;
+    color: #CBF7ED;
 }
 
 h7 {
     font-size: 8px;
     text-align: center;
-    color: grey;
+    color: #FF8811;
 }
 
 p {
@@ -158,11 +167,11 @@ p {
 }
 
 .working {
-    background-color: green;
+    background-color: #138A36;
 }
 
 .not_working {
-    background-color: red;
+    background: #A30000;
 }
 
 .nothing {
@@ -177,10 +186,11 @@ p {
     font-size: 18px;
     margin-bottom: 0;
     width: max-content;
+    color: #CBF7ED;
 }
 
 hr {
-    color: #6F9283;
+    color: #388697;
     width: 100%;
     z-index: -1;
 }
@@ -206,12 +216,13 @@ hr {
     margin: 5px;
     padding: 5px;
     border-radius: 1em;
-    box-shadow: 0 0 4px 0.5px grey;
+    box-shadow: 0 0 4px 0.5px rgba(22, 25, 37);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     padding: 3%;
+    background: rgba(100, 149, 237, .1);
 }
 
 .choosen {
@@ -220,8 +231,10 @@ hr {
 
 .rent_img {
     position: relative;
-    width: 50%;
-    background-color: grey;
+    border-radius: 1em;
+    max-height: 100%;
+    max-width: 50%;
+    background-color: rgba(22, 25, 37);
     float: left;
     z-index: -1;
 }
@@ -269,6 +282,48 @@ hr {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: start;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer_info {
+    right: 10%;
+    left: 10%;
+    background: rgba(56, 134, 151, 0.92);
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -10px 10px rgba(56, 134, 151, 0.2);
+}
+
+.info_list_left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.info_list_right {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    color: #CBF7ED;
+}
+
+.our_number {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @media (max-width: 992px) {
@@ -351,4 +406,32 @@ hr {
     .rent_wid {
         width: 98%;
     }
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
 }
