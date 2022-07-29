@@ -61,7 +61,7 @@
         <div class="rent_list">
             {% for equip in equipment %}
                 <div class="rent_wid">
-                    <img src="{{ equip.photo }}" class="rent_img">
+                    <img src="/{{ equip.photo }}" class="rent_img">
                     <div class="about_rent">
                         <h5>{{ equip.name }}</h5>
                         <h7>30м: {{ equip.cost_for_half_hour }}<br>1ч: {{ equip.cost_for_hour }}<br>3ч: {{ equip.cost_for_3_hours }}<br>День: {{ equip.cost_for_day }}</h7>

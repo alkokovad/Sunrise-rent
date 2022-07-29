@@ -4,7 +4,7 @@ from User.models import User
 
 class Equipment(models.Model):
     name = models.CharField('Название', max_length=256, unique=True)
-    photo = models.ImageField('Фото', upload_to='static/img/equipment/', default='Static/img/about_img.jpg')
+    photo = models.ImageField('Фото', upload_to='Static/img/equipment/', default='Static/img/about_img.jpg')
     description = models.TextField('Описание', blank=True, null=True)
     cost_for_half_hour = models.IntegerField('Стоимость 30 минут', blank=True, default=0)
     cost_for_hour = models.IntegerField('Стоимость часа', blank=True, default=0)
