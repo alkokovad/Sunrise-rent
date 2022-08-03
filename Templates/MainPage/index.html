@@ -42,17 +42,15 @@
         <hr>
         <h2>График нашей работы</h2>
         <div class="days">
-            {% for time in times %}
-                {% if time.date > today%}
-                    {% if time.status %}
-                        <div class="day working">
-                            <h2 class="date">{{ time.date_format }}</h2>
-                        </div>
-                    {% else %}
-                        <div class="day not_working">
-                            <h2 class="date">{{ time.date_format }}</h2>
-                        </div>
-                    {% endif %}
+            {% for date in schedule %}
+                {% if date.1 %}
+                    <div class="day working">
+                        <h2 class="date">{{ date.0.day }}</h2>
+                    </div>
+                {% else %}
+                    <div class="day not_working">
+                        <h2 class="date">{{ date.0.day }}</h2>
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>
@@ -62,7 +60,7 @@
         <h2>Оборудование</h2>
         <div class="rent_list">
             {% for equip in equipment %}
-                {% if equip.is_working %}
+                {% if equip.is_active %}
                     <div class="rent_wid">
                         <img src="/{{ equip.photo }}" class="rent_img">
                         <div class="about_rent">
