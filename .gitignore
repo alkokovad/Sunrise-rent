@@ -7,3 +7,5 @@ media
 .venv
 .env
 .idea
+Pipfile
+Pipfile.lock
