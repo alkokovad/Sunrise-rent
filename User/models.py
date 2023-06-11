@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    phone_number = models.CharField("Телефон", unique=True, max_length=12, blank=True)
+    phone_number = models.CharField("Телефон", max_length=12, blank=True)
     orders_number = models.IntegerField("Количество заказов", default=0)
     orders_sum = models.IntegerField("Сумма заказов", default=0)
 

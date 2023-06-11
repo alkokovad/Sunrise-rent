@@ -25,9 +25,10 @@ header {
 
 main {
     max-height: 100%;
-    padding-top: 20%;
+    padding-top: 15%;
     padding-left: 10%;
     padding-right: 10.1%;
+    padding-bottom: 15%
 }
 
 .about_article {
@@ -69,13 +70,13 @@ img {
 
 .about_us_title {
     padding-left: 5%;
-    padding-top: 2%;
+    padding-top: 3%;
 }
 
 .about_us_img {
     position: relative;
     float: right;
-    width: 40vw;
+    width: 42vw;
     right: 10%;
     z-index: -1;
     border-radius: 6em;
@@ -144,7 +145,7 @@ p {
     font-size: 16px;
     margin-right: 5%;
     color: #CBF7ED;
-    padding-bottom: 3%;
+    padding-bottom: 4%;
     padding-left: 5%;
 }
 
@@ -389,12 +390,14 @@ footer {
         align-items: center;
         max-width: 100%;
         left: 0%;
+        margin-top: 3em;
     }
 
     .about_us_img {
         border-radius: 1em;
         right: 0%;
         top: -3em;
+
     }
 
     p {
